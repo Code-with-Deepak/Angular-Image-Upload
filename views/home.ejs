@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Using Angular and Nodejs</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myController">
+        <nav>
+            <img alt="Logo" src="logo.gif" width="50px" height="50px">
+            <h1>File Upload Using Angular</h1>
+            <button class="search" ng-click="redirect()">Search Users</button>
+        </nav>
+        <div class="pass-msg">
+            <span class="msg">
+                <%= message %>
+            </span>            
+        </div>
+        <div class="upload-form" id="upload-form">
+            <h2>Upload Here!</h2>
+            <form action="/" name="myForm" enctype="multipart/form-data" method="post">
+                <input type="text" ng-model="name" placeholder="Enter Your Name" name="name" required />
+                <br><br>
+                <label for="test">
+                    <div class="file">Click or Drag Files</div>
+                    <input type="file" file-input="files" name="image" accept="image/*">
+                  </label><br><br><br>
+                    <input type="submit" value="Upload" class="submit">     
+            </form>
+        </div>
+        <div class="search-form" id="search-form">
+            <h2><p id="filename">Preview - Select Any File</p></h2>
+            <div class="showimg" ng-show="filepreview">
+                <img ng-src="{{filepreview}}" height="250px" width="300px">
+                <span class="filename"><b>Filename:</b> {{ filename }} <br><br>
+                   <b>Size : </b>{{ size/1000000 }} MB</span>
+                </div>
+        </div>
+    </div>
+    <script>
+        var app = angular.module('myApp', []);
+app.directive('fileInput', ['$parse', function ($parse) {
+	return {
+      $scope: {
+        fileinput: "=",
+        filepreview: "="
+      },
+      link: function($scope, element, attributes) {
+        element.bind("change", function(changeEvent) {
+          	$scope.fileinput = changeEvent.target.files[0];
+          	var reader = new FileReader();
+          	reader.onload = function(loadEvent) {
+            	$scope.$apply(function() {
+            		$scope.filepreview = loadEvent.target.result;
+            	});
+          	}
+            var status = document.getElementById('filename');
+          	reader.readAsDataURL($scope.fileinput);
+          	$scope.filename = $scope.fileinput.name;
+          	$scope.size = $scope.fileinput.size;
+              status.innerHTML = "Preview : Ready"
+        });
+      }
+    }
+}]);
+app.controller('myController', function($scope, $http,$window){
+  $scope.redirect = function(){
+      $window.location.href='/search'
+  }
+})
+    </script>
+
+</body>
+</html>

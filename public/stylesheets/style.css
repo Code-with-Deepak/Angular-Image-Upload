@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+nav{
+  background-color: white;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  z-index: 1;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149);
+}
+input[type=text]{
+  border:2px solid cadetblue;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-left: 45px;
+  background-color: transparent;
+  font-weight: bold;
+  color: cadetblue;
+  width: 70%;
+  position: initial;
+  padding: 10px;
+}
+.submit{
+  border:2px solid cadetblue;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-left: 45px;
+  background-color: transparent;
+  font-weight: bold;
+  color: cadetblue;
+  width: 76%;
+  position: initial;
+  cursor: pointer;
+  padding: 10px;
+}
+.search{
+  border:2px solid cadetblue;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-left: 45px;
+  background-color: transparent;
+  font-weight: bold;
+  color: cadetblue;
+  position: initial;
+  cursor: pointer;
+  padding: 10px;
+}
+.submit:hover,.search:hover{
+  background-color: cyan;
+  color: black;
+  border: 2px solid black;
+}
+.upload-form{
+  border: 2px solid black;
+  position: absolute;
+  width: 40%;
+  left: 5%;
+  top: 20%;
+  color: black;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.search-form{
+  border: 2px solid black;
+  position: absolute;
+  width: 40%;
+  left: 50%;
+  top: 20%;
+  color: black;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.pass-msg{
+  margin-top: 5px;
+  font-size: 18px;
+  border: 3px solid cadetblue;
+  font-weight: bold;
+  background-color: rgb(172, 172, 172);
+  opacity: 70%;
+  text-align: center;
+  padding: 10px;
+  color: rgb(0, 65, 3);
+  border-radius: 20px;
+}
+input[type="file"] {
+  position: absolute;
+  padding: 10px;
+  left: 0;
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.file{
+  background-image: url("addPhoto.png");
+  background-repeat: no-repeat;
+  background-position: 10%;
+  background-size: contain;
+  background-color: rgb(237, 255, 255);
+  position: relative;
+  left: 45px;
+  padding: 20px;
+  top: 0;
+  bottom: 0;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  border: 3px dotted #000000;
+  color: rgb(14, 14, 14);
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 10px;
+  height: 85%;
+}
+
+label {
+  display: inline-block;
+  position: relative;
+  height: 100px;
+  width: 400px;
+}
+.showimg{
+  display: flex;
+  padding: 6px;
+}
+span{
+  padding: 10px;
+}
+td,th {
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+ th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: cadetblue;
+  color: white;
+}
